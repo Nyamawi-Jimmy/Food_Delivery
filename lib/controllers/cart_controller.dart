@@ -88,4 +88,13 @@ List<CartModel>get getItems{
     return e.value;
   }).toList();
 }
+
+ int get totalAmount{
+  var total=0;
+  _items.forEach((key, value) {
+    total+=value.price!*value.quantity!;
+  });
+  return total;
+ }
+
 }

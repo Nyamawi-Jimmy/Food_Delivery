@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Food Delivery',
 
-      home:MainFoodPage(),
-      initialRoute: RouteHelper.initial,
+      //home:MainFoodPage(),
+      initialRoute: RouteHelper.getInitial(),
       getPages: RouteHelper.routes,
     );
   }
