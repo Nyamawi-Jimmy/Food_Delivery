@@ -8,20 +8,24 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import '../Pages/food/recommended_food_detail.dart';
 import '../Pages/home/cart/cart_page.dart';
 import '../Pages/home/home_page.dart';
+import '../Pages/splash/splash_page.dart';
 
 class RouteHelper{
   static const String initial="/";
+  static const String splashScreen="/splash-screen";
   static const String popularFood="/popular-food";
   static const String recommendedFood="/recommended-food";
   static const String cartDetails="/cart-details";
 
   static String getInitial()=>"$initial";
+  static String getSplashPage()=>"$splashScreen";
   static String getPopularFood(int pageId,String page)=>"$popularFood?pageId=$pageId&page=$page";
   static String getRecommendedFood(int pageId,String page)=>"$recommendedFood?pageId=$pageId&page=$page";
   static String getCartDetails()=>"$cartDetails";
 
   static List<GetPage> routes=[
   GetPage(name: initial, page: ()=>HomePage()),
+    GetPage(name: splashScreen, page: ()=>SplashPage()),
   GetPage(name: popularFood, page:(){
     var pageId=Get.parameters["pageId"];
     var page=Get.parameters["page"];

@@ -162,7 +162,7 @@ class CartPage extends StatelessWidget {
           ))
         ],
       ),
-        bottomNavigationBar: GetBuilder<CartController>(builder: (cartcontoller){
+        bottomNavigationBar: GetBuilder<CartController>(builder: (cartcontroller){
           return Container(
             height: Dimensions.height120,
             padding: EdgeInsets.only(top: Dimensions.height30,
@@ -188,7 +188,7 @@ class CartPage extends StatelessWidget {
                   child: Row(
                     children: [
 
-                      BigText(text: "\$"+cartcontoller.totalAmount.toString()),
+                      BigText(text: "\$"+cartcontroller.totalAmount.toString()),
 
                     ],
                   ),
@@ -196,6 +196,8 @@ class CartPage extends StatelessWidget {
                 GestureDetector(
                   onTap:(){
                     //popularproduct.AddItems(product);
+                    print("tapped");
+                    cartcontroller.addToHistory();
                   },
 
                   child: Container(

@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import 'cart/cart_history.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -41,7 +43,7 @@ void onTapNav(int index){
     return [
       MainFoodPage(),
       Container(child:Center(child:Text("home"))),
-      Container(child:Center(child:Text("next home"))),
+      CartHistory(),
       Container(child:Center(child:Text("next next home"))),
     ];
   }
