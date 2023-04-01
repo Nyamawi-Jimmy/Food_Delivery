@@ -55,7 +55,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           return Container(
             //color: Colors.redAccent,
             height: Dimensions.pageView,
-            child: GestureDetector(
+            child: GestureDetector( 
               child: PageView.builder(
                   controller: pageController,
                   itemCount: popularProducts.popularProductList.length,
@@ -81,7 +81,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
     }),
 
-        //Popular Text
+        //Recommended Text
         SizedBox(height: Dimensions.height30,),
         Container(
           margin: EdgeInsets.only(left: Dimensions.width20),

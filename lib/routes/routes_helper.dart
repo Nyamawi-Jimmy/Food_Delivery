@@ -5,12 +5,17 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
+import '../Pages/auth/register.dart';
+import '../Pages/auth/sign_in.dart';
+import '../Pages/auth/sign_up.dart';
 import '../Pages/food/recommended_food_detail.dart';
 import '../Pages/home/cart/cart_page.dart';
 import '../Pages/home/home_page.dart';
 import '../Pages/splash/splash_page.dart';
 
 class RouteHelper{
+  static const String signup="/signup";
+  static const String signin="/signin";
   static const String initial="/";
   static const String splashScreen="/splash-screen";
   static const String popularFood="/popular-food";
@@ -44,6 +49,15 @@ class RouteHelper{
   return CartPage();
   },
   transition:Transition.fadeIn
-  )
+  ),
+
+    //Plan B
+   GetPage(name: RouteHelper.signup,
+       page:()=>SignUpPage()
+   ),
+    GetPage(name: RouteHelper.signin,
+        page:()=>SignInPage()
+    )
+
   ];
 }

@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../Account/account_page.dart';
+import '../auth/register.dart';
+import '../auth/sign_up.dart';
 import 'cart/cart_history.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,10 +23,9 @@ class _HomePageState extends State<HomePage> {
 
   List pages=[
     MainFoodPage(),
-    Container(child:Center(child:Text("home"))),
-    Container(child:Center(child:Text("next home"))),
-    Container(child:Center(child:Text("next next home"))),
-    Container(child:Center(child:Text("next next next home"))),
+    SignUpPage(),
+    CartHistory(),
+    AccountPage(),
   ];
 
 void onTapNav(int index){
@@ -42,9 +44,9 @@ void onTapNav(int index){
   List<Widget> _buildScreens() {
     return [
       MainFoodPage(),
-      Container(child:Center(child:Text("home"))),
+      SignUpPage(),
       CartHistory(),
-      Container(child:Center(child:Text("next next home"))),
+      AccountPage(),
     ];
   }
 

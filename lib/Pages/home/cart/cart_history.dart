@@ -72,12 +72,12 @@ class CartHistory extends StatelessWidget {
               ),
             ),
           GetBuilder<CartController>(builder: (_cartController){
-            return _cartController.getItems.length>0?Expanded(
+            return _cartController.getCartHistoryList().length>0?Expanded(
                 child: Container(
                     margin: EdgeInsets.only(
-                        left: Dimensions.width20,
+                        left: Dimensions.width10/2,
                         top:Dimensions.height20,
-                        right: Dimensions.width20
+                        right: Dimensions.width10/2
                     ),
 
                     child: MediaQuery.removePadding(
@@ -106,7 +106,7 @@ class CartHistory extends StatelessWidget {
                                             return index<=2?Container(
                                               height: Dimensions.height20*4,
                                               width:Dimensions.height20*4,
-                                              margin: EdgeInsets.only(right: Dimensions.width20),
+                                              margin: EdgeInsets.only(right: Dimensions.width10/2),
                                               decoration: BoxDecoration(
                                                   borderRadius: BorderRadius.circular(Dimensions.radius20),
                                                   image: DecorationImage(
