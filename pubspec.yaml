@@ -40,8 +40,9 @@ dependencies:
   material: ^1.0.0+2
   persistent_bottom_nav_bar: ^5.0.2
   shared_preferences: ^2.0.18
-  intl: ^0.18.0
+  intl: ^0.17.0
   http: ^0.13.5
+  mpesa_flutter_plugin: ^1.6.1
 
 dev_dependencies:
   flutter_test:

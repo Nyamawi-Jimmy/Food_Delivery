@@ -1,7 +1,4 @@
 import 'dart:convert';
-
-import 'package:delivery/base/loader.dart';
-import 'package:delivery/models/signup_body_model.dart';
 import 'package:delivery/routes/routes_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -30,6 +27,7 @@ class SignUpController extends GetxController {
     phoneController = TextEditingController();
   }
 
+/*
   @override
   void onClose() {
     super.onClose();
@@ -40,6 +38,7 @@ class SignUpController extends GetxController {
     lastController.dispose();
     phoneController.dispose();
   }
+*/
 
   void checkSignUp() {
     String email = emailController.text.trim();
@@ -66,7 +65,7 @@ class SignUpController extends GetxController {
     } else if (phone.isEmpty) {
       showCustomSnackBar("Type in your phone number", title: "Phone number");
     } else {
-      Get.showOverlay(asyncFunction: () => signup(), loadingWidget: Loader());
+      Get.showOverlay(asyncFunction: () => signup(), loadingWidget: CustomLoader());
     }
   }
 

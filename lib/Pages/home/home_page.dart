@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   List pages=[
     MainFoodPage(),
-    SignUpPage(),
+    //Container(),
     CartHistory(),
     AccountPage(),
   ];
@@ -44,7 +44,7 @@ void onTapNav(int index){
   List<Widget> _buildScreens() {
     return [
       MainFoodPage(),
-      SignUpPage(),
+      //Container(child: Center(child: Text("History page")),),
       CartHistory(),
       AccountPage(),
     ];
@@ -58,12 +58,12 @@ void onTapNav(int index){
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: Colors.amberAccent,
       ),
-      PersistentBottomNavBarItem(
+/*      PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.archivebox_fill),
         title: ("History"),
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: Colors.amberAccent,
-      ),
+      ),*/
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.shopping_cart),
         title: ("Cart"),

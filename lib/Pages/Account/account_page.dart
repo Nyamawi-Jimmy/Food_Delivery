@@ -1,8 +1,13 @@
 import 'package:delivery/appcolors/colors.dart';
+import 'package:delivery/controllers/cart_controller.dart';
+import 'package:delivery/controllers/sign_in_controller.dart';
+import 'package:delivery/routes/routes_helper.dart';
 import 'package:delivery/widgets/app_icons.dart';
 import 'package:delivery/widgets/big_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/dimensions.dart';
 import '../../widgets/account_widget.dart';
@@ -67,12 +72,17 @@ class AccountPage extends StatelessWidget {
                           bigText: BigText( text: 'Fill in your address')),
                       SizedBox(height: Dimensions.height20),
                       //Message
-                      AccountWidget(appIcon:AppIcons(icon: Icons.message,
-                          backgroundColor: Colors.redAccent,
-                          iconcolor: Colors.white,
-                          iconSize: Dimensions.iconSize16*2,
-                          size: Dimensions.height15*3),
-                          bigText: BigText( text: 'Jimmy')),
+                      GestureDetector(
+                        onTap: (){
+                              Get.offAllNamed(RouteHelper.signin);
+                        },
+                        child: AccountWidget(appIcon:AppIcons(icon: Icons.logout,
+                            backgroundColor: Colors.redAccent,
+                            iconcolor: Colors.white,
+                            iconSize: Dimensions.iconSize16*2,
+                            size: Dimensions.height15*3),
+                            bigText: BigText( text: 'Logout')),
+                      ),
                       SizedBox(height: Dimensions.height20),
                     ],
                   ),

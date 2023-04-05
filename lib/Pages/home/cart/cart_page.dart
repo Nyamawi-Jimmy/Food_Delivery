@@ -11,15 +11,20 @@ import 'package:delivery/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mpesa_flutter_plugin/initializer.dart';
+import 'package:mpesa_flutter_plugin/payment_enums.dart';
 
 import '../../../base/no_page_data.dart';
 import '../../../controllers/Recommended_product_controller.dart';
+import '../../../controllers/auth_controller.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    MpesaFlutterPlugin.setConsumerKey("mh5RDnQo11IE3KuGANLHGfhLtIIllCvj");
+    MpesaFlutterPlugin.setConsumerSecret("VRcY3OsSjemjvHY8");
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -33,10 +38,15 @@ class CartPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppIcons(icon: Icons.arrow_back,
-              iconcolor: Colors.white,
-                backgroundColor: AppColors.mainColor,
-                iconSize: Dimensions.iconSize24,
+              GestureDetector(
+                onTap:(){
+                  Get.toNamed(RouteHelper.getInitial());
+                },
+                child: AppIcons(icon: Icons.arrow_back,
+                iconcolor: Colors.white,
+                  backgroundColor: AppColors.mainColor,
+                  iconSize: Dimensions.iconSize24,
+                ),
               ),
               SizedBox(width:Dimensions.width20*5),
               GestureDetector(
@@ -49,11 +59,11 @@ class CartPage extends StatelessWidget {
                   iconSize: Dimensions.iconSize24,
                 ),
               ),
-              AppIcons(icon: Icons.shopping_cart,
+/*              AppIcons(icon: Icons.shopping_cart,
                 iconcolor: Colors.white,
                 backgroundColor: AppColors.mainColor,
                 iconSize: Dimensions.iconSize24,
-              )
+              )*/
             ],
           )),
 
@@ -207,9 +217,15 @@ class CartPage extends StatelessWidget {
 
                 ),
                 GestureDetector(
-                  onTap:(){
+                  /*onTap:(){
                     //popularproduct.AddItems(product);
                     print("tapped");
+                    cartcontroller.addToHistory();
+                  }*/
+                  onTap: () {
+                    startCheckout(
+                        userPhone: "254718845069",
+                        amount: cartcontroller.totalAmount);
                     cartcontroller.addToHistory();
                   },
 
@@ -230,5 +246,36 @@ class CartPage extends StatelessWidget {
           );
         },)
     );
+  }
+
+  Future<void> startCheckout({required String userPhone, required int amount}) async {
+    //Preferably expect 'dynamic', response type varies a lot!
+    dynamic transactionInitialisation;
+    //Better wrap in a try-catch for lots of reasons.
+    try {
+      //Run it
+      transactionInitialisation =
+      await MpesaFlutterPlugin.initializeMpesaSTKPush(
+          businessShortCode: "174379",
+          transactionType: TransactionType.CustomerPayBillOnline,
+          amount: amount * 133.5,
+          partyA: userPhone,
+          partyB: "174379",
+          callBackURL: Uri(scheme: "https", host : "sandbox.safaricom.co.ke"),
+          accountReference: "Ordered Meal",
+          phoneNumber: userPhone,
+          baseUri: Uri(scheme: "https", host: "sandbox.safaricom.co.ke"),
+          transactionDesc: "purchase",
+          passKey: "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919");
+
+      print("TRANSACTION RESULT: " + transactionInitialisation.toString());
+
+      return transactionInitialisation;
+    } catch (e) {
+      //For now, console might be useful
+      print("CAUGHT EXCEPTION: " + e.toString());
+
+
+    }
   }
 }

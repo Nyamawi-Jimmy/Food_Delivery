@@ -67,7 +67,7 @@ class CartHistory extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   BigText(text: "Cart History",color: Colors.white,),
-                  AppIcons(icon: Icons.shopping_cart_outlined,iconcolor: AppColors.mainColor,)
+                 // AppIcons(icon: Icons.shopping_cart_outlined,iconcolor: AppColors.mainColor,)
                 ],
               ),
             ),

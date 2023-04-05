@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin{
         
         Timer(
             const Duration(seconds: 3),
-          ()=>Get.offNamed(RouteHelper.getInitial())
+          ()=>Get.offNamed(RouteHelper.signin)
         );
   }
 

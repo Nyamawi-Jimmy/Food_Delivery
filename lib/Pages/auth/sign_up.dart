@@ -1,3 +1,4 @@
+import 'package:delivery/Pages/auth/sign_in.dart';
 import 'package:delivery/appcolors/colors.dart';
 import 'package:delivery/base/show_custom_snackbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -96,7 +97,8 @@ class SignUpPage extends StatelessWidget {
                   SizedBox(height: Dimensions.height10,),
                   AppTextField(textController: controller.phonepasswordController,
                       hintText: "Enter Password",
-                      icon: Icons.password),
+                      icon: Icons.password,
+                      isObscure: true,),
                   SizedBox(height: Dimensions.height10,),
                   AppTextField(textController: controller.firstController,
                     hintText: 'First Name',
@@ -139,8 +141,7 @@ class SignUpPage extends StatelessWidget {
                   SizedBox(height: Dimensions.height10,),
                   RichText(
                       text: TextSpan(
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => Get.back(),
+                          recognizer: TapGestureRecognizer()..onTap = () => Get.to(()=>SignInPage(),transition: Transition.fade),
                           text: "Have an account already?",
                           style: TextStyle(
                               color: Colors.grey[500],

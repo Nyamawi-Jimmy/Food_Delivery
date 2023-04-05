@@ -14,8 +14,8 @@ List<String> cart=[];
 List<String>cartHistory=[];
 
 void addToCartList(List<CartModel>cartlist){
-/*  sharedPreferences.remove(AppConstants.CART_LIST);
-  sharedPreferences.remove(AppConstants.CART_HISTORY_LIST );*/
+  sharedPreferences.remove(AppConstants.CART_LIST);
+  sharedPreferences.remove(AppConstants.CART_HISTORY_LIST );
   var time=DateTime.now().toString();
   cart=[];
   //converting objects to string because shared preferences only accepts strings
@@ -80,5 +80,9 @@ void addToCartHistoryList(){
 void removeCart(){
   cart=[];
   sharedPreferences.remove(AppConstants.CART_LIST);
+}
+void clearCartHistory(){
+removeCart();
+sharedPreferences.remove(AppConstants.CART_HISTORY_LIST);
 }
 }

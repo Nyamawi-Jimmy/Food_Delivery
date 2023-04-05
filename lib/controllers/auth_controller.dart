@@ -30,4 +30,7 @@ Future<ResponseModel>registration(SignUpBody signUpBody) async {
   update();
   return responseModel;
 }
+bool userLoggedIn() {
+  return authRepo.userLoggedIn();
+}
 }

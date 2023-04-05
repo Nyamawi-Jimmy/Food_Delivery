@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Food Delivery',
-          home:SignUpPage(),
-          //initialRoute: RouteHelper.getSplashPage(),
+          //home:SignUpPage(),
+          initialRoute: RouteHelper.getSplashPage(),
           getPages: RouteHelper.routes,
         );
       });
