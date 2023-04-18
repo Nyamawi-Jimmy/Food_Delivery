@@ -69,8 +69,8 @@ SignInPage({Key? key}) : super(key: key);
               ),
               SizedBox(height: Dimensions.height20,),
               //Text Fields
-              AppTextField(textController:controller.phoneController,
-                hintText: 'Enter Phone Number', icon: Icons.phone,),
+              AppTextField(textController:controller.emailController,
+                hintText: 'Enter Email', icon: Icons.email,),
               SizedBox(height: Dimensions.height10,),
               AppTextField(textController:controller.phonepasswordController,
                   hintText: "Enter Password", icon: Icons.password,
