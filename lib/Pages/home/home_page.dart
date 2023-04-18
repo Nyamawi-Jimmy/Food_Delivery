@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     MainFoodPage(),
     //Container(),
     CartHistory(),
-    AccountPage(),
+    //AccountPage(),
   ];
 
 void onTapNav(int index){
@@ -46,7 +46,7 @@ void onTapNav(int index){
       MainFoodPage(),
       //Container(child: Center(child: Text("History page")),),
       CartHistory(),
-      AccountPage(),
+      //AccountPage(),
     ];
   }
 
@@ -70,12 +70,12 @@ void onTapNav(int index){
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: Colors.amberAccent,
       ),
-      PersistentBottomNavBarItem(
+    /*  PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.person),
         title: ("Me"),
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: Colors.amberAccent,
-      ),
+      ),*/
     ];
   }
 
